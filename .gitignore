@@ -1,0 +1,8 @@
+GPATH
+GRTAGS
+HTML/
+*.o
+GTAGS
+sam/sam
+samterm/samterm
+*.a

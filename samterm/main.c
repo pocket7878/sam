@@ -98,7 +98,7 @@ main(int argc, char *argv[])
     startnewfile(Tstartcmdfile, &cmd);
 
     got = 0;
-    for(;;got = waitforio()){
+    for(;;got = waitforio()) {
         if(hasunlocked && RESHAPED())
             reshape();
         if(got&RHost)
