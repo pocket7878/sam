@@ -7,7 +7,7 @@ int tabwidth = 8;
 extern bool expandtabs;
 
 void
-frinit(Frame *f, Rectangle r, XftFont *ft, Bitmap *b, uint64_t bg)
+frinit(Frame *f, Rectangle r, IFont *ft, Bitmap *b, uint64_t bg)
 {
     int tabs = atoi(getenv("TABS") ? getenv("TABS") : "");
     if (tabs < 0){

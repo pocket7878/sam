@@ -56,7 +56,7 @@ flrect(Flayer *l, Rectangle r)
 }
 
 void
-flinit(Flayer *l, Rectangle r, XftFont *ft, uint64_t bg)
+flinit(Flayer *l, Rectangle r, IFont *ft, uint64_t bg)
 {
     lldelete(l);
     llinsert(l);

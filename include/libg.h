@@ -6,7 +6,7 @@
  *  Like Plan9's libg.h, but suitable for inclusion on non-Plan9 machines
  */
 
-#include <X11/Xft/Xft.h>
+#include "libplatform.h"
 
 enum{ EMAXMSG = 128+8192 }; /* max event size */
 
@@ -55,7 +55,7 @@ struct  Bitmap
     int ldepth;
     int id;     /* as known by the X server */
     Bitmap  *cache;     /* zero; distinguishes bitmap from layer */
-    XftDraw *fd; /* font drawable */
+    IDraw *fd; /* font drawable */
     int flag;       /* flag used by X implementation of libg */
 };
 
@@ -178,9 +178,9 @@ extern void  berror(char*);
 extern void  bitblt2(Bitmap*, Point, Bitmap*, Rectangle, Fcode, uint64_t, uint64_t);
 extern void  bitblt(Bitmap*, Point, Bitmap*, Rectangle, Fcode);
 
-extern Point     string(Bitmap*, Point, XftFont*, char*, Fcode);
-extern int64_t     strwidth(XftFont*, char*);
-extern int64_t  charwidth(XftFont*, wchar_t);
+extern Point     string(Bitmap*, Point, IFont*, char*, Fcode);
+extern int64_t     strwidth(IFont*, char*);
+extern int64_t  charwidth(IFont*, wchar_t);
 extern void  texture(Bitmap*, Rectangle, Bitmap*, Fcode);
 extern void  wrbitmap(Bitmap*, int, int, unsigned char*);
 extern int   ptinrect(Point, Rectangle);
@@ -235,9 +235,9 @@ extern Rectangle Rpt(Point, Point);
 
 
 extern  Bitmap  screen;
-extern  XftFont *font;
-extern  XftColor fontcolor;
-extern  XftColor bgcolor;
+extern  IFont *font;
+extern  IColor fontcolor;
+extern  IColor bgcolor;
 
 #define BGSHORT(p)      (((p)[0]<<0) | ((p)[1]<<8))
 #define BGLONG(p)       ((BGSHORT(p)<<0) | (BGSHORT(p+2)<<16))

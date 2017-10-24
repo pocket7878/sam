@@ -5,7 +5,7 @@
 #include "libgint.h"
 
 Point
-string(Bitmap *b, Point p, XftFont *ft, char *s, Fcode f)
+string(Bitmap *b, Point p, IFont *ft, char *s, Fcode f)
 {
     size_t length = strlen(s);
     int x = p.x;
@@ -32,7 +32,7 @@ string(Bitmap *b, Point p, XftFont *ft, char *s, Fcode f)
 
 
 int64_t
-strwidth(XftFont *f, char *s)
+strwidth(IFont *f, char *s)
 {
     XGlyphInfo extents = {0};
     XftTextExtentsUtf8(_dpy, f, (FcChar8 *)s, strlen(s), &extents);
@@ -41,7 +41,7 @@ strwidth(XftFont *f, char *s)
 }
 
 int64_t
-charwidth(XftFont *f, wchar_t r)
+charwidth(IFont *f, wchar_t r)
 {
     char chars[MB_LEN_MAX + 1] = {0};
 

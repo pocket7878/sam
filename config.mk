@@ -26,8 +26,10 @@ MANDIR?=$(DESTDIR)/share/man/
 # BSD/Mac OS X users might need to add something like
 # INCLUDES=-I/usr/X11R6/include -I/usr/X11R6/include/freetype2
 # LDFLAGS=-L/usr/X11R6/lib
-INCLUDES=`pkg-config --cflags freetype2` -I/opt/X11/include
+INCLUDES=`pkg-config --cflags freetype2`  -I/opt/X11/include
 LDFLAGS=`pkg-config --libs freetype2` -L/opt/X11/lib
+#INCLUDES=`pkg-config --cflags freetype2` 
+#LDFLAGS=`pkg-config --libs freetype2`
 
 # Set this to your default remote shell.
 RXPATH=/usr/bin/ssh
